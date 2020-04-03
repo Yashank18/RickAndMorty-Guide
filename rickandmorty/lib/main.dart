@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:rickandmorty/homescreen.dart';
 
 void main() => runApp(MyApp());
 
@@ -34,22 +35,27 @@ class _MyHomePageState extends State<MyHomePage> {
     return SafeArea(
           child: Scaffold(
         
-        body: Container(
-          color: Color.fromRGBO(45, 62, 80, 1),
-          height: screenHeight,
-          width: screenWidth,
-          child:Center(child: Column(
-            
-            children: <Widget>[
-              SizedBox(height: screenHeight*0.16,),
-              Text("Rick",style:GoogleFonts.bangers(textStyle:TextStyle(fontWeight: FontWeight.w900,fontSize: screenHeight*0.2,color:Colors.red))),
-              Text("and",style:GoogleFonts.bangers(textStyle:TextStyle(fontWeight: FontWeight.w900,fontSize: screenHeight*0.2,color:Colors.red))),
-              Text("Morty",style:GoogleFonts.bangers(textStyle:TextStyle(fontWeight: FontWeight.w900,fontSize: screenHeight*0.2,color:Colors.red))),
-               SizedBox(height: screenHeight*0.135,),
-               Text("Fan App V 1.0.0",style:GoogleFonts.bangers(textStyle:TextStyle(fontWeight: FontWeight.w900,fontSize: screenHeight*0.02,color:Colors.red))),
+        body: InkWell(
+          onTap: (){
+            Navigator.push(context, new MaterialPageRoute(builder: (__) => new homescreen()));
+          },
+                  child: Container(
+            color: Color.fromRGBO(45, 62, 80, 1),
+            height: screenHeight,
+            width: screenWidth,
+            child:Center(child: Column(
+              
+              children: <Widget>[
+                SizedBox(height: screenHeight*0.16,),
+                Text("Rick",style:GoogleFonts.bangers(textStyle:TextStyle(fontWeight: FontWeight.w900,fontSize: screenHeight*0.2,color:Colors.red))),
+                Text("and",style:GoogleFonts.bangers(textStyle:TextStyle(fontWeight: FontWeight.w900,fontSize: screenHeight*0.2,color:Colors.red))),
+                Text("Morty",style:GoogleFonts.bangers(textStyle:TextStyle(fontWeight: FontWeight.w900,fontSize: screenHeight*0.2,color:Colors.red))),
+                 SizedBox(height: screenHeight*0.135,),
+                 Text("Fan App V 1.0.0",style:GoogleFonts.bangers(textStyle:TextStyle(fontWeight: FontWeight.w900,fontSize: screenHeight*0.02,color:Colors.red))),
 
-            ],
-          )),
+              ],
+            )),
+          ),
         ),
       ),
     );
