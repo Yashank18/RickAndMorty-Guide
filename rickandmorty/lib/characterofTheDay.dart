@@ -67,69 +67,74 @@ class _CHaracterOfTheDayState extends State<CHaracterOfTheDay> {
     double screenHeight=MediaQuery.of(context).size.height;
     double screenWidth=MediaQuery.of(context).size.width;
     return SafeArea(
-          child: Scaffold(
-            appBar: new AppBar(
-              backgroundColor:Color.fromRGBO(45, 62, 80, 1),
-              leading: Icon(Icons.arrow_back_ios,color:Colors.red),
-              title: Text("Character Of the Day",style: GoogleFonts.varelaRound(textStyle:TextStyle(color:Colors.red)),),
-            ),
-            body: Container(
-              height: screenHeight,
-              width: screenWidth,
-              color:Color.fromRGBO(45, 62, 80, 1),
-              child: FutureBuilder<Shape>(
-                future: futureAlbum,
-                builder: (context,snapshot){
-                  if(snapshot.hasData){
-                    return Column(  
-
-                      children: <Widget>[
-                        
-                        SizedBox(height: screenHeight*0.03,),
-                        Image.network('${snapshot.data.image}',height: screenHeight*0.4,width: screenWidth*0.7,),
-                        SizedBox(height: screenHeight*0.03,),
-                        Text("${snapshot.data.name}",style: GoogleFonts.specialElite(textStyle:TextStyle(fontSize: 35,color:Colors.red))),
-                        SizedBox(height: screenHeight*0.07,),
-                        Column(
-                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                          children: <Widget>[
-                            Container(
-                              
-                              child: Text("Gender - ${snapshot.data.gender}",style: GoogleFonts.specialElite(textStyle:TextStyle(fontSize: 20,color:Colors.red))),
-                            ),
-                            SizedBox(height: screenHeight*0.02,),
-                            Container(
-                              
-                              child: Text("Species - ${snapshot.data.species}",style: GoogleFonts.specialElite(textStyle:TextStyle(fontSize: 20,color:Colors.red))),
-                            ),
-                          ],
-                        ),
-                         SizedBox(height: screenHeight*0.07,),
-                        Column(
-                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                          children: <Widget>[
-                            Container(
-                              
-                              child: Text("Status - ${snapshot.data.status}",style: GoogleFonts.specialElite(textStyle:TextStyle(fontSize: 20,color:Colors.red))),
-                            ),
-                            SizedBox(height: screenHeight*0.02,),
-                            Container(
-                              
-                              child: Text("Created - ${snapshot.data.created}",style: GoogleFonts.specialElite(textStyle:TextStyle(fontSize: 18,color:Colors.red))),
-                            ),
-                          ],
-                        )
-
-                      ],
-                    );
-                  }
-                  else {
-                    return CircularProgressIndicator();
-                  }
-                },
+          child: WillPopScope(
+            onWillPop: (){
+              Navigator.pop(context);
+            },
+               child: Scaffold(
+              appBar: new AppBar(
+                backgroundColor:Color.fromRGBO(45, 62, 80, 1),
+                leading: InkWell(onTap: (){Navigator.pop(context);},child: Icon(Icons.arrow_back_ios,color:Colors.red)),
+                title: Text("Character Of the Day",style: GoogleFonts.varelaRound(textStyle:TextStyle(color:Colors.red)),),
               ),
-            ),
+              body: Container(
+                height: screenHeight,
+                width: screenWidth,
+                color:Color.fromRGBO(45, 62, 80, 1),
+                child: FutureBuilder<Shape>(
+                  future: futureAlbum,
+                  builder: (context,snapshot){
+                    if(snapshot.hasData){
+                      return Column(  
+
+                        children: <Widget>[
+                          
+                          SizedBox(height: screenHeight*0.03,),
+                          Image.network('${snapshot.data.image}',height: screenHeight*0.4,width: screenWidth*0.7,),
+                          SizedBox(height: screenHeight*0.03,),
+                          Text("${snapshot.data.name}",style: GoogleFonts.specialElite(textStyle:TextStyle(fontSize: 35,color:Colors.red))),
+                          SizedBox(height: screenHeight*0.07,),
+                          Column(
+                            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                            children: <Widget>[
+                              Container(
+                                
+                                child: Text("Gender - ${snapshot.data.gender}",style: GoogleFonts.specialElite(textStyle:TextStyle(fontSize: 20,color:Colors.red))),
+                              ),
+                              SizedBox(height: screenHeight*0.02,),
+                              Container(
+                                
+                                child: Text("Species - ${snapshot.data.species}",style: GoogleFonts.specialElite(textStyle:TextStyle(fontSize: 20,color:Colors.red))),
+                              ),
+                            ],
+                          ),
+                           SizedBox(height: screenHeight*0.07,),
+                          Column(
+                            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                            children: <Widget>[
+                              Container(
+                                
+                                child: Text("Status - ${snapshot.data.status}",style: GoogleFonts.specialElite(textStyle:TextStyle(fontSize: 20,color:Colors.red))),
+                              ),
+                              SizedBox(height: screenHeight*0.02,),
+                              Container(
+                                
+                                child: Text("Created - ${snapshot.data.created}",style: GoogleFonts.specialElite(textStyle:TextStyle(fontSize: 18,color:Colors.red))),
+                              ),
+                            ],
+                          )
+
+                        ],
+                      );
+                    }
+                    else {
+                      return CircularProgressIndicator();
+                    }
+                  },
+                ),
+              ),
       ),
+          ),
     );
   }
 }

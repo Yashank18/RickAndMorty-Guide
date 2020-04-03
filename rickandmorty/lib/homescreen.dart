@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:rickandmorty/characterofTheDay.dart';
+import 'package:rickandmorty/cookedBook.dart';
 
 class homescreen extends StatefulWidget {
   homescreen({Key key}) : super(key: key);
@@ -73,16 +74,21 @@ with SingleTickerProviderStateMixin  {
                   ),
                    AnimatedBuilder(
                     animation: animationController,
-                    child: Container(
-                      
-                      height: screenHeight*0.2,
-                      width: screenWidth*0.35,
-                      decoration: BoxDecoration(
-                        color: Color.fromRGBO(45, 62, 80, 1),
-                        image: DecorationImage(image: AssetImage("Images/bg.png",),fit: BoxFit.cover,),
-                        border: Border.all(color: Color.fromRGBO(45, 62, 80, 1),width: 0),
+                    child: InkWell(
+                       onTap: (){
+                        Navigator.push(context, new MaterialPageRoute(builder: (__) => new cookedBook()));
+                      },
+                        child: Container(
+                        
+                        height: screenHeight*0.2,
+                        width: screenWidth*0.35,
+                        decoration: BoxDecoration(
+                          color: Color.fromRGBO(45, 62, 80, 1),
+                          image: DecorationImage(image: AssetImage("Images/bg.png",),fit: BoxFit.cover,),
+                          border: Border.all(color: Color.fromRGBO(45, 62, 80, 1),width: 0),
+                        ),
+                        child: Center(child: Text("Cooked Book",textAlign: TextAlign.center,style: GoogleFonts.russoOne(textStyle:TextStyle(fontSize: 20.0)),),),
                       ),
-                      child: Center(child: Text("Cooked Book",textAlign: TextAlign.center,style: GoogleFonts.russoOne(textStyle:TextStyle(fontSize: 20.0)),),),
                     ),
                     builder: (BuildContext context, Widget _widget) {
                     return new Transform.rotate(
