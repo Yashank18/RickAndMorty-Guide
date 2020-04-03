@@ -23,21 +23,23 @@ Future<Shape> fetchAlbum() async {
   }
 }
 
+
 class Shape{
   String name;
   String status;
   String species;
   String gender;
   String image;
-  
-  Shape({this.name,this.status,this.species,this.gender,this.image});
+  String created;
+  Shape({this.name,this.status,this.species,this.gender,this.image,this.created});
 factory Shape.fromJson(Map<String, dynamic> json){
   return Shape(
      name: json['name'],
     status:json['status'],
     species: json['species'],
     gender:json['gender'],
-    image:json['image']
+    image:json['image'],
+    created:json['created'],
     
   );
 }
@@ -83,8 +85,41 @@ class _CHaracterOfTheDayState extends State<CHaracterOfTheDay> {
 
                       children: <Widget>[
                         
-                        SizedBox(height: screenHeight*0.02,),
-                        Image.network('${snapshot.data.image}'),
+                        SizedBox(height: screenHeight*0.03,),
+                        Image.network('${snapshot.data.image}',height: screenHeight*0.4,width: screenWidth*0.7,),
+                        SizedBox(height: screenHeight*0.03,),
+                        Text("${snapshot.data.name}",style: GoogleFonts.specialElite(textStyle:TextStyle(fontSize: 35,color:Colors.red))),
+                        SizedBox(height: screenHeight*0.07,),
+                        Column(
+                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                          children: <Widget>[
+                            Container(
+                              
+                              child: Text("Gender - ${snapshot.data.gender}",style: GoogleFonts.specialElite(textStyle:TextStyle(fontSize: 20,color:Colors.red))),
+                            ),
+                            SizedBox(height: screenHeight*0.02,),
+                            Container(
+                              
+                              child: Text("Species - ${snapshot.data.species}",style: GoogleFonts.specialElite(textStyle:TextStyle(fontSize: 20,color:Colors.red))),
+                            ),
+                          ],
+                        ),
+                         SizedBox(height: screenHeight*0.07,),
+                        Column(
+                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                          children: <Widget>[
+                            Container(
+                              
+                              child: Text("Status - ${snapshot.data.status}",style: GoogleFonts.specialElite(textStyle:TextStyle(fontSize: 20,color:Colors.red))),
+                            ),
+                            SizedBox(height: screenHeight*0.02,),
+                            Container(
+                              
+                              child: Text("Created - ${snapshot.data.created}",style: GoogleFonts.specialElite(textStyle:TextStyle(fontSize: 18,color:Colors.red))),
+                            ),
+                          ],
+                        )
+
                       ],
                     );
                   }
