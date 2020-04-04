@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:rickandmorty/advancedSearch.dart';
 import 'package:rickandmorty/characters.dart';
+import 'package:rickandmorty/search.dart';
 
 class cookedBook extends StatefulWidget {
   cookedBook({Key key}) : super(key: key);
@@ -48,21 +50,31 @@ class _cookedBookState extends State<cookedBook> {
                         child: Center(child:Text("Characters",style: GoogleFonts.varelaRound(textStyle:TextStyle(color: Colors.red,fontSize: 25)),)),
                       ),
                     ),
-                    Container(
-                      height: screenHeight*0.15,
-                      width: screenWidth*0.4,
-                      color: Colors.blue.shade100.withOpacity(0.1),
-                      child: Center(child:Text("Locations",style: GoogleFonts.varelaRound(textStyle:TextStyle(color: Colors.red,fontSize: 25)),)),
+                    InkWell(
+                      onTap: (){
+                         Navigator.push(context, new MaterialPageRoute(builder: (__) => new search(option: "Character",)));
+                      },
+                        child: Container(
+                        height: screenHeight*0.15,
+                        width: screenWidth*0.4,
+                        color: Colors.blue.shade100.withOpacity(0.1),
+                        child: Center(child:Text("Search",style: GoogleFonts.varelaRound(textStyle:TextStyle(color: Colors.red,fontSize: 25)),)),
+                      ),
                     ),
                   ],
                 ),
                 SizedBox(height: screenHeight*0.04,),
-                Container(
-                      height: screenHeight*0.15,
-                      width: screenWidth*0.9,
-                      color: Colors.blue.shade100.withOpacity(0.1),
-                      child: Center(child:Text("Episodes",style: GoogleFonts.varelaRound(textStyle:TextStyle(color: Colors.red,fontSize: 25)),)),
-                    ),
+                InkWell(
+                        onTap: (){
+                         Navigator.push(context, new MaterialPageRoute(builder: (__) => new advanced()));
+                      },
+                        child: Container(
+                        height: screenHeight*0.15,
+                        width: screenWidth*0.9,
+                        color: Colors.blue.shade100.withOpacity(0.1),
+                        child: Center(child:Text("Advanced Search",style: GoogleFonts.varelaRound(textStyle:TextStyle(color: Colors.red,fontSize: 25)),)),
+                      ),
+                ),
               ],
             ),
           ),

@@ -4,9 +4,9 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'dart:math';
 import 'package:http/http.dart' as http;
-String url="https://rickandmortyapi.com/api/character/3";
+String url="https://rickandmortyapi.com/api/character/";
 Random random = new Random();
-int randomNumber = random.nextInt(100); 
+int randomNumber = random.nextInt(300); 
 
 Future<Shape> fetchAlbum() async {
   final response =
