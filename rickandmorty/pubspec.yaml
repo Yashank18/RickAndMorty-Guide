@@ -45,6 +45,7 @@ flutter:
   assets:
     - Images/rick-face-png-6.png
     - Images/bg.png
+    - Images/wubba.png
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.

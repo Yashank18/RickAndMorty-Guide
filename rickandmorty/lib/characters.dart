@@ -26,7 +26,7 @@ class _charactersState extends State<characters> {
 
     setState(() {
       // Get the JSON data
-      data = json.decode(response.body)['results'];
+      data = json.decode(response.body);
     });
 
     return "Successfull";
@@ -52,6 +52,7 @@ class _charactersState extends State<characters> {
           body: Container(
             color:Color.fromRGBO(45, 62, 80, 1),
               child: ListView.builder(
+                physics:BouncingScrollPhysics(),
                 itemCount: data == null ? 0 : data.length,
                 itemBuilder: (BuildContext context, index) {
                   return  Card(

@@ -25,6 +25,9 @@ class _cookedBookState extends State<cookedBook> {
              backgroundColor:Color.fromRGBO(45, 62, 80, 1),
              leading: InkWell(onTap: (){Navigator.pop(context);},child: Icon(Icons.arrow_back_ios,color:Colors.red)),
                 title: Text("Cooked Book",style: GoogleFonts.varelaRound(textStyle:TextStyle(color:Colors.red)),),
+              actions: <Widget>[
+                IconButton(icon: Icon(Icons.info_outline,color:Colors.red), onPressed: (){})
+              ],  
           ),
           body: Container(
             height: screenHeight,

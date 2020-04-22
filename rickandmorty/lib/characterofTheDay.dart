@@ -128,7 +128,7 @@ class _CHaracterOfTheDayState extends State<CHaracterOfTheDay> {
                       );
                     }
                     else {
-                      return CircularProgressIndicator();
+                      return Center(child:Image.asset('Images/wubba.png'),);
                     }
                   },
                 ),
