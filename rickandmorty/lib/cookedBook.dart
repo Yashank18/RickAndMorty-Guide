@@ -36,9 +36,9 @@ class _cookedBookState extends State<cookedBook> {
             child:Column(
               
               children: <Widget>[
-                SizedBox(height: screenHeight*0.05,),
-                Image.network("https://www.cartoongoodies.com/wp-content/uploads/2019/11/Rick-and-Mortimer-running.png"),
                 SizedBox(height: screenHeight*0.15,),
+                Image.network("https://www.cartoongoodies.com/wp-content/uploads/2019/11/Rick-and-Mortimer-running.png"),
+                SizedBox(height: screenHeight*0.1,),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: <Widget>[
@@ -47,9 +47,13 @@ class _cookedBookState extends State<cookedBook> {
                           Navigator.push(context, new MaterialPageRoute(builder: (__) => new characters()));
                       },
                         child: Container(
-                        height: screenHeight*0.15,
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.all(Radius.circular(50)),
+                             color: Colors.blue.shade100.withOpacity(0.1),
+                          ),
+                        height: screenHeight*0.12,
                         width: screenWidth*0.4,
-                        color: Colors.blue.shade100.withOpacity(0.1),
+                       
                         child: Center(child:Text("Characters",style: GoogleFonts.varelaRound(textStyle:TextStyle(color: Colors.red,fontSize: 25)),)),
                       ),
                     ),
@@ -58,9 +62,12 @@ class _cookedBookState extends State<cookedBook> {
                          Navigator.push(context, new MaterialPageRoute(builder: (__) => new search(option: "Character",)));
                       },
                         child: Container(
-                        height: screenHeight*0.15,
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.all(Radius.circular(50)),
+                             color: Colors.blue.shade100.withOpacity(0.1),
+                          ),
+                        height: screenHeight*0.12,
                         width: screenWidth*0.4,
-                        color: Colors.blue.shade100.withOpacity(0.1),
                         child: Center(child:Text("Search",style: GoogleFonts.varelaRound(textStyle:TextStyle(color: Colors.red,fontSize: 25)),)),
                       ),
                     ),
@@ -72,10 +79,13 @@ class _cookedBookState extends State<cookedBook> {
                          Navigator.push(context, new MaterialPageRoute(builder: (__) => new advanced()));
                       },
                         child: Container(
-                        height: screenHeight*0.15,
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.all(Radius.circular(50)),
+                             color: Colors.blue.shade100.withOpacity(0.1),
+                          ),
+                        height: screenHeight*0.12,
                         width: screenWidth*0.9,
-                        color: Colors.blue.shade100.withOpacity(0.1),
-                        child: Center(child:Text("Advanced Search",style: GoogleFonts.varelaRound(textStyle:TextStyle(color: Colors.red,fontSize: 25)),)),
+                        child: Center(child:Text("Advanced Search",style: GoogleFonts.varelaRound(textStyle:TextStyle(color: Colors.red,fontSize: 30)),)),
                       ),
                 ),
               ],

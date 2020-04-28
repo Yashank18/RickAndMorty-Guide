@@ -38,7 +38,7 @@ class _advancedState extends State<advanced> {
               
               children: <Widget>[
                 
-                Image.network("https://lh3.googleusercontent.com/proxy/9lwcxbeuDWIVxep05I8LSgs7gsdOMKoWGSCyUa287KXQFceNvCKtR8UO4hRoeoz-41fNxd6WyUg5zf1VkGz4hH9svUFamkTx2TfywqfEaInduB-Sar76ma1qjKoQi2NpzzI",height: screenHeight*0.48,width: screenWidth*0.9,),
+                Image.asset('Images/wubba.png',height: screenHeight*0.5),
                 
                 SizedBox(height: screenHeight*0.04,),
                 Column(
@@ -91,9 +91,12 @@ class _advancedState extends State<advanced> {
                          
                       },
                          child: Container(
+                           decoration: BoxDecoration(
+                            borderRadius: BorderRadius.all(Radius.circular(50)),
+                             color: Colors.blue.shade100.withOpacity(0.1),
+                          ),
                         height: screenHeight*0.08,
                         width: screenWidth*0.4,
-                        color: Colors.blue.shade100.withOpacity(0.1),
                         child: Center(child:Text("Search",style: GoogleFonts.varelaRound(textStyle:TextStyle(color: Colors.red,fontSize: 25)),)),
                       ),
                     ),
