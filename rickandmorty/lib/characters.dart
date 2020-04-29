@@ -97,7 +97,7 @@ class _charactersState extends State<characters> {
                     padding:
                         const EdgeInsets.only(left: 16.0, right: 16.0, bottom: 16.0),
                     child: Text(
-                     "Top for my bio 😉",
+                     "Click to know more",
                       style: TextStyle(
                           fontWeight: FontWeight.normal,
                           fontSize: 16,

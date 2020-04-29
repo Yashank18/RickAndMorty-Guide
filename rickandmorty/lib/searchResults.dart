@@ -52,6 +52,7 @@ class _searchoneState extends State<searchone> {
           body: Container(
             color:Color.fromRGBO(45, 62, 80, 1),
               child: ListView.builder(
+                physics: BouncingScrollPhysics(),
                 itemCount: data == null ? 0 : data.length,
                 itemBuilder: (BuildContext context, index) {
                   return  Card(

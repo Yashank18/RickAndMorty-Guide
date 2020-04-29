@@ -10,7 +10,7 @@ class details extends StatefulWidget {
   String image;
   String status;
   String created;
-  details({Key key,@required created,@required this.id,@required name, @required status,@required this.species, @required this.gender, @required this.origin, @required this.location,@required this.image}) : super(key: key);
+  details({Key key,@required this.created,@required this.id,@required this.name, @required this.status,@required this.species, @required this.gender, @required this.origin, @required this.location,@required this.image}) : super(key: key);
  
   @override
   _detailsState createState() => _detailsState();
@@ -41,7 +41,7 @@ class _detailsState extends State<details> {
                   children: <Widget>[ SizedBox(height: screenHeight*0.03,),
                           Image.network('${widget.image}',height: screenHeight*0.4,width: screenWidth*0.7,),
                           SizedBox(height: screenHeight*0.03,),
-                          Text("${widget.name}",style: GoogleFonts.specialElite(textStyle:TextStyle(fontSize: 35,color:Colors.red))),
+                          Text("${widget.name}",style: GoogleFonts.specialElite(textStyle:TextStyle(fontSize: 35,color:Colors.red)),textAlign: TextAlign.center),
                           SizedBox(height: screenHeight*0.07,),
                           Column(
                             mainAxisAlignment: MainAxisAlignment.spaceEvenly,

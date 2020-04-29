@@ -74,7 +74,7 @@ class _advancedState extends State<advanced> {
                           style: GoogleFonts.varelaRound(textStyle:TextStyle(height: 2.0,color: Colors.red)),
                           textAlign: TextAlign.center,
                           decoration: InputDecoration(
-                            hintText: "Enter Status (Living or Dead)",
+                            hintText: "Enter Status (alive or Dead)",
                             hintStyle: GoogleFonts.varelaRound(textStyle:TextStyle(color:Colors.red)),
                             enabledBorder:  UnderlineInputBorder(      
                             borderSide: BorderSide(color: Colors.red),   
