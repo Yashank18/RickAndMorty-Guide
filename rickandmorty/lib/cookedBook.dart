@@ -4,6 +4,8 @@ import 'package:rickandmorty/advancedSearch.dart';
 import 'package:rickandmorty/characters.dart';
 import 'package:rickandmorty/search.dart';
 
+import 'developer.dart';
+
 class cookedBook extends StatefulWidget {
   cookedBook({Key key}) : super(key: key);
 
@@ -26,7 +28,9 @@ class _cookedBookState extends State<cookedBook> {
              leading: InkWell(onTap: (){Navigator.pop(context);},child: Icon(Icons.arrow_back_ios,color:Colors.red)),
                 title: Text("Cooked Book",style: GoogleFonts.varelaRound(textStyle:TextStyle(color:Colors.red)),),
               actions: <Widget>[
-                IconButton(icon: Icon(Icons.info_outline,color:Colors.red), onPressed: (){})
+                IconButton(icon: Icon(Icons.info_outline,color:Colors.red), onPressed: (){
+                   Navigator.push(context, new MaterialPageRoute(builder: (__) => new Developer()));
+                })
               ],  
           ),
           body: Container(
