@@ -87,7 +87,7 @@ class _advancedState extends State<advanced> {
                     InkWell(
                       onTap: (){
                        
-                         Navigator.push(context, new MaterialPageRoute(builder: (__) => new searchone(option: myController.text,option2:"&status="+myController2.text)));
+                         Navigator.push(context, new MaterialPageRoute(builder: (__) => new searchone(title:myController.text,option: myController.text,option2:"&status="+myController2.text)));
                          
                       },
                          child: Container(

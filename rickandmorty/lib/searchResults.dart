@@ -1,12 +1,14 @@
 import 'dart:convert';
 
+import 'characterDetails.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:http/http.dart' as http;
 
 class searchone extends StatefulWidget {
   String option,option2;
-  searchone({Key key,@required this.option,this.option2}) : super(key: key);
+  String title;
+  searchone({Key key,@required this.option,this.option2,@required this.title}) : super(key: key);
 
   @override
   _searchoneState createState() => _searchoneState();
@@ -47,7 +49,7 @@ class _searchoneState extends State<searchone> {
            appBar: new AppBar(
              backgroundColor:Color.fromRGBO(45, 62, 80, 1),
              leading: InkWell(onTap: (){Navigator.pop(context);},child: Icon(Icons.arrow_back_ios,color:Colors.red)),
-                title: Text("Characters",style: GoogleFonts.varelaRound(textStyle:TextStyle(color:Colors.red)),),
+                title: Text(widget.title,style: GoogleFonts.varelaRound(textStyle:TextStyle(color:Colors.red)),),
           ),
           body: Container(
             color:Color.fromRGBO(45, 62, 80, 1),
@@ -55,7 +57,14 @@ class _searchoneState extends State<searchone> {
                 physics: BouncingScrollPhysics(),
                 itemCount: data == null ? 0 : data.length,
                 itemBuilder: (BuildContext context, index) {
-                  return  Card(
+                  return  InkWell( 
+              onTap: (){
+                      Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => details(id:index,name:data[index]['name'],status: data[index]['status'],created: data[index]['created'],image: data[index]['image'],origin: data[index]['origin']['name'],gender: data[index]['gender'],species: data[index]['species'],location: data[index]['location']['name'],)),
+                    );
+                    },
+              child: Card(
               color:Colors.red.shade400,
               margin: EdgeInsets.only(left: 8.0, right: 8.0, top: 8.0, bottom: 8.0),
               elevation: 4.0,
@@ -63,44 +72,45 @@ class _searchoneState extends State<searchone> {
               crossAxisAlignment: CrossAxisAlignment.stretch,
                mainAxisSize: MainAxisSize.min,
                 children: <Widget>[
-                  Image.network(
-                      
-                        data[index]['image'],
-                      
-                      height: MediaQuery.of(context).size.height / 2,
-                      fit: BoxFit.cover,
-                  ),
+                    Image.network(
+                        
+                          data[index]['image'],
+                        
+                        height: MediaQuery.of(context).size.height / 2,
+                        fit: BoxFit.cover,
+                    ),
                 Padding(
-                  padding: const EdgeInsets.only(
-                      left: 16.0, right: 16.0, top: 16.0, bottom: 4.0),
-                  child: Align(
-                    alignment: Alignment.topLeft,
-                    child: Text(
-                      data[index]['name'],
-                      style:GoogleFonts.varelaRound(
-                      textStyle: TextStyle(
-                          fontWeight: FontWeight.bold,
-                          fontSize: 30,
-                          color: Color.fromRGBO(45, 62, 80, 1)),
+                    padding: const EdgeInsets.only(
+                        left: 16.0, right: 16.0, top: 16.0, bottom: 4.0),
+                    child: Align(
+                      alignment: Alignment.topLeft,
+                      child: Text(
+                        data[index]['name'],
+                        style:GoogleFonts.varelaRound(
+                        textStyle: TextStyle(
+                            fontWeight: FontWeight.bold,
+                            fontSize: 30,
+                            color: Color.fromRGBO(45, 62, 80, 1)),
+                      ),
+                      ),
                     ),
-                    ),
-                  ),
                 ),
                 Padding(
-                  padding:
-                      const EdgeInsets.only(left: 16.0, right: 16.0, bottom: 16.0),
-                  child: Text(
-                   data[index]['species']+" , "+ data[index]['gender'] +' and '+data[index]['status']+" from "+data[index]['origin']['name'],
-                    style: TextStyle(
-                        fontWeight: FontWeight.normal,
-                        fontSize: 16,
-                        color: Color.fromRGBO(45, 62, 80, 1)),
-                  ),
+                    padding:
+                        const EdgeInsets.only(left: 16.0, right: 16.0, bottom: 16.0),
+                    child: Text(
+                     data[index]['species']+" , "+ data[index]['gender'] +' and '+data[index]['status']+" from "+data[index]['origin']['name'],
+                      style: TextStyle(
+                          fontWeight: FontWeight.normal,
+                          fontSize: 16,
+                          color: Color.fromRGBO(45, 62, 80, 1)),
+                    ),
                 ),
                 ]
               )
               
-            );
+            ),
+                  );
                     
                     // return _buildRow(data[index]);
                   }

@@ -69,7 +69,7 @@ class _searchState extends State<search> {
                     InkWell(
                       onTap: (){
                        
-                         Navigator.push(context, new MaterialPageRoute(builder: (__) => new searchone(option: myController.text,option2: "",)));
+                         Navigator.push(context, new MaterialPageRoute(builder: (__) => new searchone(option: myController.text,option2: "",title:myController.text)));
                          
                       },
                          child: Container(
